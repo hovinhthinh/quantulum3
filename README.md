@@ -1,3 +1,32 @@
+edited
+==========
+3 files were added into the original repo: `quantulum3/kb.py`,`quantulum3/kg-unit-collection.json` and `quantulum3/quantulum-name2kg-units.json`.
+
+Basic usage:
+```
+from quantulum3.kb import parse
+
+qts = parse("Gimme $1e10 now and also 1 TW and 0.5 J!")
+
+for u in qts:
+    print('--------')
+    print(u.span, u.surface, u.value, u.unit)
+    if u.kb_unit is not None:
+        print(u.kb_unit.entity, u.kb_unit.wd_entry, u.kb_unit.si_unit, u.kb_unit.conversion_to_si)
+```
+
+Example output:
+```
+--------
+(6, 11) $1e10 10000000000.0 dollar
+<United_States_dollar> Q4917 None None
+--------
+(25, 29) 1 TW 1.0 terawatt
+<terawatt_wd:Q23823681> Q23823681 <Watt> 1000000000000
+--------
+(34, 39) 0.5 J 0.5 joule
+<Joule> Q25269 <Joule> 1
+```
 quantulum3
 ==========
  [![Travis master build state](https://travis-ci.com/nielstron/quantulum3.svg?branch=master "Travis master build state")](https://travis-ci.com/nielstron/quantulum3)
